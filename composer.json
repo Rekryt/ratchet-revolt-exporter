@@ -1,0 +1,39 @@
+{
+    "name": "rekryt/ratchet-revolt-example",
+    "description": "Example of use new PHP 8.1 Fibers",
+    "license": "MIT",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Krupkin Sergey",
+            "email": "rekrytkw@gmail.com",
+            "homepage": "https://vk.com/krupkin.sergey"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "ext-redis": "*",
+        "revolt/event-loop": "^0.2.1",
+        "amphp/amp": "v3.x-dev",
+        "amphp/react-adapter": "v3.x-dev",
+        "react/http": "^1.6",
+        "react/mysql": "^0.5.6",
+        "promphp/prometheus_client_php": "^2.6",
+        "drift/dbal": "^0.1.5",
+        "doctrine/collections": "^1.6",
+        "cboden/ratchet": "^0.4.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    },
+    "autoload": {
+        "psr-4": {
+            "RatchetRevoltExporter\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "RatchetRevoltExporter\\": "tests/RatchetRevoltExporter"
+        }
+    }
+}
