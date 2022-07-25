@@ -50,7 +50,7 @@ php index.php
 ```
 
 ### Example
-```injectablephp
+```php
 // Example gauge from mysql
 $gauge = $registry->getOrRegisterGauge('rpe', 'testTable', 'Value from mysql');
 $loop->addPeriodicTimer(1, function () use ($gauge) {
