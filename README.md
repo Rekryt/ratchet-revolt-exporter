@@ -18,8 +18,7 @@ Ratchet is a loosely coupled PHP library providing developers with tools to crea
 
 Ratchet based on ReactPHP event loop but to use native fibers, the loop can be replaced to Revolt event loop by ReactAdaptor
 
--   https://github.com/amphp/react-adapter
--   https://github.com/Rekryt/react-adapter - for Amphp v3
+-   https://github.com/amphp/react-adapter/tree/v3 - for Amphp v3
 
 ### What is prometheus_client_php?
 
