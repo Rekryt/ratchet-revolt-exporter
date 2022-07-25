@@ -39,6 +39,17 @@ RedisStorage::setDefaultOptions([
     'persistent_connections' => false,
 ]);
 
+/**
+ * Set mysql options
+ */
+DB::setDefaultOptions([
+    'host' => $_ENV['MYSQL_HOST'] ? $_ENV['MYSQL_HOST'] : 'mysql',
+    'port' => $_ENV['MYSQL_PORT'] ? $_ENV['MYSQL_PORT'] : '3306',
+    'user' => $_ENV['MYSQL_USER'] ? $_ENV['MYSQL_USER'] : 'mysql',
+    'password' => $_ENV['MYSQL_PASSWORD'] ? $_ENV['MYSQL_PASSWORD'] : 'mysql',
+    'db' => $_ENV['MYSQL_DB'] ? $_ENV['MYSQL_DB'] : 'db',
+]);
+
 try {
     $registry = new CollectorRegistry(new RedisStorage(), false);
 } catch (\Exception $e) {

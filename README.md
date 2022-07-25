@@ -51,6 +51,33 @@ php index.php
 
 ### Example
 ```php
+/**
+ * Set redis options
+ * @see https://github.com/promphp/prometheus_client_php#usage
+ */
+RedisStorage::setDefaultOptions([
+    'host' => 'redis',
+    'port' => 6379,
+    'password' => null,
+    'database' => 0,
+    'timeout' => 0.1, // in seconds
+    'read_timeout' => '10', // in seconds
+    'persistent_connections' => false
+]);
+
+/**
+ * Set mysql options
+ */
+DB::setDefaultOptions([
+    'host' => 'mysql',
+    'port' => '3306',
+    'user' => 'mysql',
+    'password' => 'mysql',
+    'db' => 'db'
+]);
+```
+
+```php
 // Example gauge from mysql
 $gauge = $registry->getOrRegisterGauge('rpe', 'testTable', 'Value from mysql');
 $loop->addPeriodicTimer(1, function () use ($gauge) {

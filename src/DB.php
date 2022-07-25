@@ -38,14 +38,41 @@ class DB {
     private Credentials $credentials;
 
     /**
-     * DB constructor
+     * Credentials options
+     * @var string[]
      */
-    public function __construct() {
+    private static array $defaultOptions = [
+        'host' => 'mysql',
+        'port' => '3306',
+        'user' => 'mysql',
+        'password' => 'mysql',
+        'db' => 'db',
+    ];
+
+    /**
+     * @param mixed[] $options
+     */
+    public static function setDefaultOptions(array $options): void {
+        self::$defaultOptions = array_merge(self::$defaultOptions, $options);
+    }
+
+    /**
+     * DB constructor
+     * @param array $options
+     */
+    public function __construct($options = []) {
         $loop = ReactAdapter::get();
+        self::setDefaultOptions($options);
 
         $this->driver = new MysqlDriver($loop);
         $this->platform = new MySqlPlatform();
-        $this->credentials = new Credentials('mysql', '3306', 'mysql', 'mysql', 'db');
+        $this->credentials = new Credentials(
+            self::$defaultOptions['host'],
+            self::$defaultOptions['port'],
+            self::$defaultOptions['user'],
+            self::$defaultOptions['password'],
+            self::$defaultOptions['db']
+        );
 
         $this->conn = SingleConnection::createConnected($this->driver, $this->credentials, $this->platform);
 
