@@ -29,6 +29,7 @@ This library uses Redis or APCu to do the client side aggregation. If using Redi
 ## Installation & Usage
 ```shell
 cp .env.example .env
+cp mysql/.env.example mysql/.env
 docker-compose up -d
 ```
 
