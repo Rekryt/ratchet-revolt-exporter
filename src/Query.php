@@ -278,7 +278,7 @@ class Query {
             function (Result $result) {
                 return $result;
             },
-            function (\RuntimeException $exception) {
+            function (\Exception $exception) {
                 echo $exception->getMessage() . PHP_EOL;
             }
         );
